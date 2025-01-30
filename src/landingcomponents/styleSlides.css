@@ -136,7 +136,8 @@ body {
   opacity: 0.25;
   position: relative;
   text-align: center;
-  transition: opacity calc(var(--base-duration) / 2) var(--base-ease),
+  transition:
+    opacity calc(var(--base-duration) / 2) var(--base-ease),
     transform calc(var(--base-duration) / 2) var(--base-ease);
   width: var(--slide-size);
   z-index: 1;
@@ -222,7 +223,8 @@ body {
   pointer-events: none;
   position: absolute;
   top: -5%;
-  transition: opacity var(--base-duration) var(--base-ease),
+  transition:
+    opacity var(--base-duration) var(--base-ease),
     transform var(--base-duration) var(--base-ease);
   user-select: none;
   width: 110%;
@@ -307,7 +309,8 @@ body {
     opacity: 0.25;
     position: relative;
     text-align: center;
-    transition: opacity calc(var(--base-duration) / 2) var(--base-ease),
+    transition:
+      opacity calc(var(--base-duration) / 2) var(--base-ease),
       transform calc(var(--base-duration) / 2) var(--base-ease);
     width: var(--slide-size);
     z-index: 1;

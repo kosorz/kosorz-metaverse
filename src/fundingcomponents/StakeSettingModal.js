@@ -63,11 +63,15 @@ export const StakeSettingModal = (props) => {
         </Button>
         <Button
           onClick={() => {
-            stakeType === "stake" ? props.onStake()
-            : stakeType === "unstake" ? props.onUnstake()
-            : stakeType === "emergencyUnstake" ? props.onEmergencyUnstake()
-            : stakeType === "nftStake" ? props.onNftStake()
-            : props.onNftUnstake()
+            stakeType === "stake"
+              ? props.onStake()
+              : stakeType === "unstake"
+                ? props.onUnstake()
+                : stakeType === "emergencyUnstake"
+                  ? props.onEmergencyUnstake()
+                  : stakeType === "nftStake"
+                    ? props.onNftStake()
+                    : props.onNftUnstake();
           }}
           // onClick={}
         >

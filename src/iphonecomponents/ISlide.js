@@ -27,9 +27,9 @@ export const ISlide = () => {
     timeoutRef.current = setTimeout(
       () =>
         setIndex((prevIndex) =>
-          prevIndex === images.length - 1 ? 0 : prevIndex + 1
+          prevIndex === images.length - 1 ? 0 : prevIndex + 1,
         ),
-      delay
+      delay,
     );
 
     return () => {

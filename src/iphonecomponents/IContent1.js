@@ -1,34 +1,19 @@
 import GImg from "../images/G.png";
 import "bootstrap-icons/font/bootstrap-icons.css";
-// import { AnimatedSection } from "../landingcomponents/AnimatedSection";
 import Gate from "../images/Gate.svg";
 import Mexc from "../images/Mexc.svg";
 import Coin from "../images/Coin.svg";
 import Market from "../images/Market.svg";
 export const IContent1 = () => {
-  //   const getFadeTopStyles = (isFadeLeftInViewPort) => ({
-  //     transition: "all 1s ease-in",
-  //     opacity: isFadeLeftInViewPort ? "1" : "0",
-  //     transform: isFadeLeftInViewPort ? "" : "translateY(100px)",
-  //   });
-  //   const getFadeLeftStyles = (isFadeLeftInViewPort) => ({
-  //     transition: "all 1.5s ease-in",
-  //     opacity: isFadeLeftInViewPort ? "1" : "0",
-  //     transform: isFadeLeftInViewPort ? "" : "translateX(100%)",
-  //   });
   return (
     <div className="IContent1">
       <div className="topTitle">
         <div className="topText">
-          {/* <AnimatedSection getStyles={getFadeLeftStyles}> */}
-
           <div id="line"></div>
           <div className="text">
             <span className="title title1">Explore</span>
             <span className="title title2">MUNITYHUB</span>
           </div>
-
-          {/* </AnimatedSection> */}
 
           <div id="line"></div>
         </div>
@@ -42,7 +27,6 @@ export const IContent1 = () => {
         </div>
       </div>
 
-      {/* <AnimatedSection getStyles={getFadeTopStyles}> */}
       <div className="imgTitle">
         <div class="border-gradient">
           <div className="borderTitle leftTitle">
@@ -140,7 +124,6 @@ export const IContent1 = () => {
           </div>
         </div>
       </div>
-      {/* </AnimatedSection> */}
     </div>
   );
 };

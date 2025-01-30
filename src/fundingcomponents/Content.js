@@ -1,6 +1,5 @@
 import { Footer } from "../landingcomponents/Footer";
 import { Munityjoin } from "./Munityjoin";
-import { Nfts } from "./Nfts";
 import { SlideModal } from "./SlideModal";
 import { Tabcontrol } from "./Tabcontrol";
 import { AvailableStaked } from "./AvailableStaked";

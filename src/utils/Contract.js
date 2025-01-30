@@ -34,7 +34,7 @@ const sepoliaChainId = 11155111,
 export const initEthStakingContractToGET = async (address) => {
   walletAddressETHToGET = address;
   const provider = new ethers.providers.JsonRpcProvider(
-    `https://eth-sepolia.g.alchemy.com/v2/EAChkFYXxIJD1QFY7DkiJDEkRcEeF6fk`
+    `https://eth-sepolia.g.alchemy.com/v2/EAChkFYXxIJD1QFY7DkiJDEkRcEeF6fk`,
   );
 
   const signer = provider.getSigner(address);
@@ -42,7 +42,7 @@ export const initEthStakingContractToGET = async (address) => {
   ethStakingContractToGET = new ethers.Contract(
     contractAddress,
     contractABI,
-    signer
+    signer,
   );
 };
 
@@ -55,7 +55,7 @@ export const initEthStakingContractToPOST = async (address) => {
   ethStakingContractToPOST = new ethers.Contract(
     contractAddress,
     contractABI,
-    signer
+    signer,
   );
 };
 
@@ -65,14 +65,14 @@ export const initNftCollectionContractToGET = async (address) => {
   //   `https://polygon-mainnet.g.alchemy.com/v2/2-6issytfOYX6y-qIln93YiqBR9Dojeo`
   // );
   const provider = new ethers.providers.JsonRpcProvider(
-    `https://eth-sepolia.g.alchemy.com/v2/EAChkFYXxIJD1QFY7DkiJDEkRcEeF6fk`
+    `https://eth-sepolia.g.alchemy.com/v2/EAChkFYXxIJD1QFY7DkiJDEkRcEeF6fk`,
   );
   const signer = provider.getSigner(address);
 
   nftCollectionContractToGET = new ethers.Contract(
     testNftCollectionAddress,
     testNftCollectionABI,
-    signer
+    signer,
   );
   // nftCollectionContractToGET = new ethers.Contract(
   //   nftCollectionAddress,
@@ -94,14 +94,14 @@ export const initNftCollectionContractToPOST = async (address) => {
   nftCollectionContractToPOST = new ethers.Contract(
     testNftCollectionAddress,
     testNftCollectionABI,
-    signer
+    signer,
   );
 };
 
 export const initNftStakingContractToGET = async (address) => {
   walletAddressNFTStakingToGET = address;
   const provider = new ethers.providers.JsonRpcProvider(
-    `https://eth-sepolia.g.alchemy.com/v2/EAChkFYXxIJD1QFY7DkiJDEkRcEeF6fk`
+    `https://eth-sepolia.g.alchemy.com/v2/EAChkFYXxIJD1QFY7DkiJDEkRcEeF6fk`,
   );
   // const provider = new ethers.providers.JsonRpcProvider(
   //   `https://eth-sepolia.g.alchemy.com/v2/EAChkFYXxIJD1QFY7DkiJDEkRcEeF6fk`
@@ -112,7 +112,7 @@ export const initNftStakingContractToGET = async (address) => {
   nftStakingContractToGET = new ethers.Contract(
     testNftStakingContractAddress,
     testNftStakingContractABI,
-    signer
+    signer,
   );
   // nftStakingContractToGET = new ethers.Contract(nftStakingContractAddress, nftStakingContractABI, signer)
   return nftStakingContractToGET;
@@ -131,7 +131,7 @@ export const initNftStakingContractToPOST = async (address) => {
   nftStakingContractToPOST = new ethers.Contract(
     testNftStakingContractAddress,
     testNftStakingContractABI,
-    signer
+    signer,
   );
   // nftStakingContractToPOST = new ethers.Contract(nftStakingContractAddress, nftStakingContractABI, signer)
 };
@@ -148,7 +148,7 @@ export const getStakeBalance = async (address) => {
 
 export const getWalletBalance = async (address) => {
   const provider = new ethers.providers.JsonRpcProvider(
-    `https://eth-sepolia.g.alchemy.com/v2/EAChkFYXxIJD1QFY7DkiJDEkRcEeF6fk`
+    `https://eth-sepolia.g.alchemy.com/v2/EAChkFYXxIJD1QFY7DkiJDEkRcEeF6fk`,
   );
   let balance = await provider.getBalance(address);
   return parseFloat(BigNumber.from(balance).div(1e15)) / 1e3;
@@ -179,9 +179,8 @@ export const getAvailableStakeBalance = async (address) => {
 export const getAccumulatedPoint = async (address) => {
   if (!ethStakingContractToGET || address !== walletAddressETHToGET)
     await initEthStakingContractToGET(address);
-  let accumulatedPoint = await ethStakingContractToGET.getAccumulatedPoint(
-    address
-  );
+  let accumulatedPoint =
+    await ethStakingContractToGET.getAccumulatedPoint(address);
   return parseFloat(BigNumber.from(accumulatedPoint).div(1e15)) / 1e3;
 };
 
@@ -217,7 +216,7 @@ export const stake = async (mode, price, address) => {
   } catch (err) {
     return {
       status: "danger",
-      msg: err.error ? err.error.message : "User rejected the transaction."
+      msg: err.error ? err.error.message : "User rejected the transaction.",
     };
   }
 };
@@ -252,7 +251,7 @@ export const unstake = async (address) => {
   } catch (err) {
     return {
       status: "danger",
-      msg: err.error ? err.error.message : "User rejected the transaction."
+      msg: err.error ? err.error.message : "User rejected the transaction.",
     };
   }
 };
@@ -290,7 +289,7 @@ export const emergencyUnstake = async (address) => {
   } catch (err) {
     return {
       status: "danger",
-      msg: err.error ? err.error.message : "User rejected the transaction."
+      msg: err.error ? err.error.message : "User rejected the transaction.",
     };
   }
 };
@@ -308,7 +307,7 @@ export const getNftOwnedTokenIds = async (address) => {
   for (let i = 0; i < balance; i++) {
     let tokenId = await nftCollectionContractToGET.tokenOfOwnerByIndex(
       address,
-      i
+      i,
     );
     tokenIds.push(parseInt(BigNumber.from(tokenId).mul(1)));
   }
@@ -325,7 +324,7 @@ export const tokenURI = async (tokenId, address) => {
 
   let tokenURI = await nftCollectionContractToGET.tokenURI(tokenId);
   let json = await fetch(
-    "https://gateway.pinata.cloud/ipfs/" + tokenURI.substr(7)
+    "https://gateway.pinata.cloud/ipfs/" + tokenURI.substr(7),
   );
   let nftMetaData = await json.json();
   return "https://gateway.pinata.cloud/ipfs/" + nftMetaData.image.substr(7);
@@ -348,7 +347,7 @@ export const getNftTokenMunityMedals = async (address, tokenId) => {
   if (!nftStakingContractToGET || address !== walletAddressNFTStakingToGET)
     await initNftStakingContractToGET(address);
   let munityMedals = await nftStakingContractToGET.getTokenMunityMedals(
-    BigNumber.from(tokenId).mul(1)
+    BigNumber.from(tokenId).mul(1),
   );
   return parseInt(BigNumber.from(munityMedals).mul(1));
 };
@@ -378,7 +377,10 @@ export const nftStake = async (address, tokenId) => {
     if (!nftCollectionContractToPOST)
       await initNftCollectionContractToPOST(address);
 
-    let apptx = await nftCollectionContractToPOST.approve(testNftStakingContractAddress, tokenId);
+    let apptx = await nftCollectionContractToPOST.approve(
+      testNftStakingContractAddress,
+      tokenId,
+    );
     let appres = await apptx.wait();
     if (appres.transactionHash) {
       let tx = await nftStakingContractToPOST.stake(tokenId);
@@ -397,7 +399,7 @@ export const nftStake = async (address, tokenId) => {
   } catch (err) {
     return {
       status: "danger",
-      msg: err.error ? err.error.message : "User rejected the transaction."
+      msg: err.error ? err.error.message : "User rejected the transaction.",
     };
   }
 };
@@ -432,7 +434,7 @@ export const nftUnstake = async (address, tokenId) => {
   } catch (err) {
     return {
       status: "danger",
-      msg: err.error ? err.error.message : "User rejected the transaction."
+      msg: err.error ? err.error.message : "User rejected the transaction.",
     };
   }
 };

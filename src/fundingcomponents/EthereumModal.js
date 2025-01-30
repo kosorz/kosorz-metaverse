@@ -116,7 +116,7 @@ export const EthereumModal = (props) => {
     let ret = await stake(
       defaultDay === 15 ? 0 : defaultDay === 30 ? 1 : 2,
       stakeValue * 1e9,
-      address
+      address,
     );
     AlertContext.setAlert(ret);
     setModalShow(false);

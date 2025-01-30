@@ -30,10 +30,10 @@ export const Funding = () => {
 
   const resetTokenID = (tokenId) => {
     setTokenId(tokenId);
-  }
+  };
   const resetCurrentStaked = (tokenId) => {
     setCurrentStaked(tokenId);
-  }
+  };
 
   useEffect(() => {
     (async () => {

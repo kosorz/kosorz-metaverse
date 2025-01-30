@@ -34,7 +34,6 @@ createWeb3Modal({
   enableAnalytics: true, // Optional - defaults to your Cloud configuration
 });
 
-
 export function ContextProvider({ children }) {
   return (
     <WagmiProvider config={config}>

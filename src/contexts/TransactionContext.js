@@ -7,5 +7,4 @@ import React from "react";
 export const TransactionContext = React.createContext({
   // activeBtn: activeBtn,
   // changeData:changeData
-  
 });

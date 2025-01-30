@@ -11,7 +11,9 @@
     border-bottom: 1px solid;
     border-left: 1px solid;
     border-right: 1px solid;
-    box-shadow: 0 4px 8px 0 #5a3af1, #2d2263 #5a3af1;
+    box-shadow:
+      0 4px 8px 0 #5a3af1,
+      #2d2263 #5a3af1;
   }
 
   .prefix1 {
